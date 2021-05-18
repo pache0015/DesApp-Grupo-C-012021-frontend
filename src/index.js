@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import FormContainer from './components/formContainer/formContainer.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FormContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );

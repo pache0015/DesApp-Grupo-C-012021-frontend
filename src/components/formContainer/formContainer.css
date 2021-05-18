@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.formContainer{
+    width: 80vw;
+    height: 80vh;
+    border-radius: 50px;
+    font-family: 'Open Sans', sans-serif;
+    background: rgb(29,38,51);
+    background: linear-gradient(0deg, rgba(29,38,51,1) 33%, rgba(48,64,86,1) 66%);
+    /* background-color: aliceblue; */
+    display: flex;
+    justify-content: space-between;
+}
+.img-formContainer{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    animation: brillo 2s infinite alternate-reverse;
+    border-radius: 40px 0px 0px 40px;
+}
+@keyframes brillo{
+    to{
+        filter: brightness(70%);
+    }
+    from{
+        filter: brightness(90%);
+    }
+}
+.form-formContainer{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+.links-form{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    color: #ffffff;
+}
+.links-form a{
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    
+}
+.links-form a:active{
+    border-bottom: 2px solid #0683a0;
+    color: #6e6e6e;
+}
+.container-loginForm{
+    width: 50%;
+    height: 100%;
+}
