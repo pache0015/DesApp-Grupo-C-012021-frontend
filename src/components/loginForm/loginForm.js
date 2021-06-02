@@ -7,10 +7,9 @@ import facebook from '../../media/facebook.svg';
 import github from '../../media/github.svg';
 
 import { IconButton , Input } from '@material-ui/core';
-import VisibilityIcon from '@material-ui/icons/Visibility';
 import { InputAdornment } from '@material-ui/core';
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import {Visibility} from "@material-ui/icons";
+import Visibility from "@material-ui/icons/Visibility";
 
 
 function LoginForm() {
