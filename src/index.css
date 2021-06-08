@@ -18,3 +18,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.switcher{
+  right: 30px;
+  bottom: 20px;
+  position: absolute;
+}

@@ -1,6 +1,10 @@
 
 import React from "react";
-import './loginForm.css';
+import img from '../../media/img-formContent.jpg';
+import './registerForm.css';
+import google from '../../media/google.svg';
+import facebook from '../../media/facebook.svg';
+import github from '../../media/github.svg';
 
 import { IconButton , Input } from '@material-ui/core';
 import { InputAdornment } from '@material-ui/core';
@@ -8,9 +12,10 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
 import { useTranslation} from "react-i18next";
 import "../../translations/i18n";
+import SwitcherLanguage from "../switcherLanguage/switcherLanguage";
 
 
-function LoginForm() {
+function RegisterForm() {
 
         const { t } = useTranslation();
         const [values, setValues] = React.useState({
@@ -32,6 +37,8 @@ function LoginForm() {
 
         return (
             <div className="loginForm">
+                <div className="label"> { t("name") } </div>
+                <input type="text" className="textbox"></input>
                 <div className="label"> {t("email")}</div>
                 <input type="text" className="textbox"></input>
                 <div className="label"> {t("password")}</div>
@@ -52,10 +59,10 @@ function LoginForm() {
                     }
                 />
 
-                <button className="signUp">Login</button>
+                <button className="signUp">Sign up</button>
 
             </div>
         );
     };
 
-export default LoginForm;
+export default RegisterForm;

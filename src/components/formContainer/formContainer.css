@@ -50,7 +50,10 @@
     border-bottom: 2px solid #0683a0;
     color: #6e6e6e;
 }
-.container-loginForm{
+.links-form a:hover{
+    color: #6e6e6e;
+}
+.container-Form{
     width: 50%;
     height: 100%;
 }
