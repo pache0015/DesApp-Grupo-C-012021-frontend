@@ -3,7 +3,7 @@ export const TRANSLATIONS_EN = {
     login:"Login",
     or:"or",
     signUp:"Sign up",
-    name:"Name",
+    username:"Name",
     email:"Email",
     password:"Password",
 };

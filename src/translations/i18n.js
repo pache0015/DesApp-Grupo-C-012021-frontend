@@ -9,6 +9,7 @@ i18n
     .use( LanguageDetector )
     .use( initReactI18next )
     .init( {
+        lng: "es",
         resources: {
             en: {
                 translation: TRANSLATIONS_EN

@@ -1,9 +1,7 @@
 import React from "react";
 import img from '../../media/img-formContent.jpg';
-import RegisterForm from '../registerForm/registerForm';
 import './formContainer.css';
-import LoginForm from "../loginForm/loginForm";
-import FormToShow from "../FormToShow/FormToShow";
+import FormToShow from "../../components/FormToShow/FormToShow";
 
 class FormContainer extends React.Component{
 
@@ -15,7 +13,6 @@ class FormContainer extends React.Component{
     this.changeState = this.changeState.bind(this);
     this.changeLoginFalse = this.changeLoginFalse.bind(this);
     this.changeLoginTrue = this.changeLoginTrue.bind(this);
-
   }
 
   changeState(bool){

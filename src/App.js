@@ -1,25 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import SwitcherLanguage from "./components/switcherLanguage/switcherLanguage";
+import FormContainer from "./pages/formContainer/formContainer";
+import React from "react";
+import {Fragment} from "react";
+import { Link, Route} from "wouter"
+import UserHomer from "./pages/userHomer/UserHomer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Fragment>
+          <SwitcherLanguage className="switcher"/>
+          <Route path="/" component={ FormContainer } />
+          <Route path="/home" component={ UserHomer} />
+      </Fragment>
   );
 }
-
 export default App;

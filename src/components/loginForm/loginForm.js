@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState} from "react";
 import './loginForm.css';
 
 import { IconButton , Input } from '@material-ui/core';
@@ -13,7 +13,9 @@ import "../../translations/i18n";
 function LoginForm() {
 
         const { t } = useTranslation();
-        const [values, setValues] = React.useState({
+        const [name, setName] = useState('');
+        const [password, setPassword] = useState('');
+        const [values, setValues] = useState({
             password: "",
             showPassword: false,
         });
@@ -32,8 +34,11 @@ function LoginForm() {
 
         return (
             <div className="loginForm">
-                <div className="label"> {t("email")}</div>
-                <input type="text" className="textbox"></input>
+                <div className="label"> {t("Name")}</div>
+                <input type="text"
+                       className="textbox"
+                       onChange={(e) => e.target.value}
+                       value={name}></input>
                 <div className="label"> {t("password")}</div>
                 <Input
                     type={values.showPassword ? "text" : "password"}

@@ -20,11 +20,19 @@ const useStyles = makeStyles((theme) => ({
 
     export default function SwitcherLanguage() {
         const classes = useStyles();
-        const [language, setLanguage] = React.useState('');
+        const [language, setLanguage] = React.useState('en');
 
         const handleChange = (event) => {
             setLanguage(event.target.value);
         };
+
+        function languageName(){
+            if (language === 'en'){
+                return "English";
+            } else {
+                return "Spanish";
+            }
+        }
 
     return (
         <div className="switcher">
@@ -33,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={language}
+                    value={languageName}
                     onChange={handleChange}
                 >
                     <MenuItem value={"en"}>English</MenuItem>

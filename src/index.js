@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import FormContainer from './components/formContainer/formContainer.js';
-import SwitcherLanguage from "./components/switcherLanguage/switcherLanguage";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-      <SwitcherLanguage className="switcher"/>
-      <FormContainer />
+      <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
