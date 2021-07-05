@@ -8,12 +8,14 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
 import { useTranslation} from "react-i18next";
 import "../../translations/i18n";
+import login from "../../services/login";
+
 
 
 function LoginForm() {
 
         const { t } = useTranslation();
-        const [name, setName] = useState('');
+        const [username, setName] = useState('');
         const [password, setPassword] = useState('');
         const [values, setValues] = useState({
             password: "",
@@ -31,14 +33,17 @@ function LoginForm() {
         const handlePasswordChange = (prop) => (event) => {
             setValues({...values, [prop]: event.target.value});
         };
-
+        const handleSubmit = (event) =>{
+            event.preventDefault();
+            login({ username, password })
+        }
         return (
-            <div className="loginForm">
-                <div className="label"> {t("Name")}</div>
+            <form className="loginForm" onSubmit={handleSubmit}>
+                <div className="label"> {t("Userame")}</div>
                 <input type="text"
                        className="textbox"
                        onChange={(e) => e.target.value}
-                       value={name}></input>
+                       value={username}></input>
                 <div className="label"> {t("password")}</div>
                 <Input
                     type={values.showPassword ? "text" : "password"}
@@ -59,7 +64,7 @@ function LoginForm() {
 
                 <button className="signUp">Login</button>
 
-            </div>
+            </form>
         );
     };
 
