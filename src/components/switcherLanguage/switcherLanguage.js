@@ -1,42 +1,29 @@
-import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import React, {useState} from "react";
+
 import './switcherLanguage.css';
 
 
 
-const useStyles = makeStyles((theme) => ({
-        formControl: {
-            margin: theme.spacing(1),
-            minWidth: 120,
-        },
-        selectEmpty: {
-            marginTop: theme.spacing(2),
-        },
-    }));
-
     export default function SwitcherLanguage() {
-        const classes = useStyles();
-        const [language, setLanguage] = React.useState('en');
+        const [language, setLanguage] = useState('en');
 
-        const handleChange = (event) => {
-            setLanguage(event.target.value);
+        const handleClick = (event) => {
+            event.preventDefault();
+            setLanguage(changeLang);
         };
 
-        function languageName(){
+        function changeLang(){
             if (language === 'en'){
-                return "English";
+                setLanguage('es')
             } else {
-                return "Spanish";
+                setLanguage('en')
             }
         }
 
     return (
         <div className="switcher">
-            <FormControl className={classes.formControl} id="select">
+            <button onClick={handleClick}>Change Lang</button>
+            {/*<FormControl className={classes.formControl} id="select">
                 <InputLabel id="demo-simple-select-label">Language</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
@@ -47,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
                     <MenuItem value={"en"}>English</MenuItem>
                     <MenuItem value={"es"}>Spanish</MenuItem>
                 </Select>
-            </FormControl>
+            </FormControl>*/}
         </div>
     );
 };
