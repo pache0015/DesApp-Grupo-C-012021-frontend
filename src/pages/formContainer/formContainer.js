@@ -1,21 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import img from '../../media/img-formContent.jpg';
 import './formContainer.css';
 import FormToShow from "../../components/FormToShow/FormToShow";
+import {useTranslation} from "react-i18next";
 
-class FormContainer extends React.Component{
+export default function FormContainer (){
 
-  constructor(props) {
+  const { t, i18n } = useTranslation();
+  const [isLoginActive, setIsLoginActive] = useState(true)
+  const handleCLick = (e) =>{
+    e.preventDefault();
+    setIsLoginActive(!isLoginActive)
+  }
+  /*constructor(props) {
     super(props);
     this.state = {
       isLoginActive: true
     };
+
     this.changeState = this.changeState.bind(this);
     this.changeLoginFalse = this.changeLoginFalse.bind(this);
     this.changeLoginTrue = this.changeLoginTrue.bind(this);
-  }
+  }*/
 
-  changeState(bool){
+  /*changeState(bool){
     this.setState(() =>({
       isLoginActive: bool
     }))
@@ -25,26 +33,23 @@ class FormContainer extends React.Component{
   }
   changeLoginFalse(){
     this.changeState(false);
-  }
-  render (){
+  }*/
     return(
     <div className="formContainer">
-        <img src={img} className="img-formContainer" loading="lazy"/>
+        <img src={img} className="img-formContainer" loading="lazy" alt=""/>
         <div className="form-formContainer">
           <div className="links-form">
-            <a onClick={this.changeLoginTrue}>
-              <h1>Login</h1>
+            <a onClick={handleCLick}>
+              <h1>{t("login")}</h1>
             </a>
-            or
-            <a onClick={this.changeLoginFalse}>
-              <h1>Sign up</h1>
+            {t("or")}
+            <a onClick={handleCLick}>
+              <h1>{t("signUp")}</h1>
             </a>
           </div>
-          <FormToShow isLoginActive={this.state.isLoginActive}/>
+          <FormToShow isLoginActive={isLoginActive}/>
         </div>
     </div>
   );
 }
-}
 
-export default FormContainer;

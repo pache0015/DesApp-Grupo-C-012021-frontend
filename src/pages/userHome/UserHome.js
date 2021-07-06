@@ -21,8 +21,8 @@ export default function UserHome(){
             .then(data => {
                 setUserData(data)
                 console.log(data)
-                setTitlesReviewed(data.titlesReviewed.length)
-                setReviewsWritten(data.reviewsWritten.length)
+                setTitlesReviewed(data.titlesReviewed ? data.titlesReviewed.length : 0)
+                setReviewsWritten(data.reviewsWritten ? data.reviewsWritten.length : 0)
                 setLoading(false)
             })
 
