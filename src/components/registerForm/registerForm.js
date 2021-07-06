@@ -1,5 +1,5 @@
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './registerForm.css';
 
 import { IconButton , Input } from '@material-ui/core';
@@ -10,34 +10,25 @@ import Visibility from "@material-ui/icons/Visibility";
 import { useTranslation} from "react-i18next";
 import "../../translations/i18n";
 
+import {useLocation} from "wouter";
+import useUsser from "../../hooks/useUsser";
+
 
 export default function RegisterForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    //const [password, setPassword] = useState('');
+    const {register} = useUsser()
+    const [,navigate] = useLocation();
     const [values, setValues] = useState({
         password: "",
         showPassword: false,
     });
 
-    const axios = require('axios').default;
-
-    function register(){
-         return axios.post('/user/register',{
-             name: {name},
-             password: {password},
-             email: {email}
-         }).then(function (response){
-             console.log(response);
-         }).then(function (error){
-             console.log(error);
-         })
-    }
     const { t } = useTranslation();
 
     const handleClickShowPassword = () => {
         setValues({...values, showPassword: !values.showPassword});
-        setPassword();
     };
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -47,36 +38,29 @@ export default function RegisterForm() {
     };
 
     function handleSubmit(event) {
-        console.log('A name was submitted: ' + this.state.value);
         event.preventDefault();
-        clickRegister();
-    }
-    const clickRegister = () => {
-        console.log("REGISTERRRRRR");
-        console.log({name});
-        console.log({email});
-        console.log({password});
+        register(name, values.password, email)
+        navigate('/login');
     }
 
 
     return (
-        <div className="loginForm" onSubmit={handleSubmit}>
-            <div className="label"> { t("name") } </div>
+        <form className="loginForm" onSubmit={handleSubmit}>
+            <div className="label"> { t("username") } </div>
             <input type="text"
                    className="textbox"
                    onChange={(e) => setName(e.target.value)}
-                   value={name}></input>
+                   value={name} />
             <div className="label"> {t("email")}</div>
             <input type="text"
                    className="textbox"
                    onChange={(e) => setEmail(e.target.value)}
-                   value={email}></input>
+                   value={email} />
             <div className="label"> {t("password")}</div>
             <Input
                 type={values.showPassword ? "text" : "password"}
                 onChange={handlePasswordChange("password")}
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
+                value={values.password}
                 className="password-input"
                 endAdornment={
                     <InputAdornment position="end">
@@ -89,8 +73,8 @@ export default function RegisterForm() {
                     </InputAdornment>
                 }
             />
-            <button className="signUp" type="submit" value="Submit" onClick={clickRegister}>Sign up</button>
-            </div>
+            <button className="signUp">{t("signUp")}</button>
+            </form>
         );
     };
 
