@@ -2,26 +2,27 @@ import React from "react";
 import {Link, useLocation, useRoute} from 'wouter';
 import './header.css';
 import useUsser from "../../hooks/useUsser";
+import {useTranslation} from "react-i18next";
 
 export default function Header (){
+    const { t, i18n } = useTranslation();
     const {isLogged, logout} = useUsser()
     const [,navigate] = useLocation();
     const [match] = useRoute("/login");
 
     const handleClick = e =>{
         e.preventDefault()
-        console.log("SE EJECUTA")
         logout();
         navigate('/');
     }
     const renderLoginButtons = ({isLogged}) => {
         return isLogged
             ? <Link className="link" to='#' onClick={handleClick}>
-                Logout
+                {t("logout")}
             </Link>
             : <>
                 <Link className="link" to='/login'>
-                    Login
+                    {t("login")}
                 </Link>
             </>
     }

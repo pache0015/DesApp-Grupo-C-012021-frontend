@@ -6,5 +6,9 @@ export const TRANSLATIONS_ES = {
     login: "Entrar",
     signUp: "Registrarse",
     or: "o",
-    changeLang: "Cambiar idioma"
+    changeLang: "Change lang",
+    logout: "Salir",
+    yourToken: "Tu token:",
+    tittlesReviews: "Títulos revisados:",
+    reviewsWritten: "Reseñas escritas:"
 };

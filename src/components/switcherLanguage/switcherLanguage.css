@@ -13,6 +13,12 @@
     border-radius: 10px;
     z-index: 2;
 }
-#select{
-    margin: 0px;
+.a-switcher{
+    width: 80%;
+    height: 80%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #253243;
 }

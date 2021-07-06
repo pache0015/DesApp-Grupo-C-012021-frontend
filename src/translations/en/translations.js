@@ -1,10 +1,14 @@
 export const TRANSLATIONS_EN = {
-    welcome:"Welcome to the tutorial",
-    login:"Login",
-    or:"or",
-    signUp:"Sign up",
-    username:"Usernameqqqqqqq",
-    name: "Name",
-    email:"Email",
-    password:"Password",
+    welcome:"Bienvenido",
+    username : "Username",
+    email: "Email",
+    password : "Password",
+    login: "Login",
+    signUp: "Sign Up",
+    or: "or",
+    changeLang: "Cambiar lenguaje",
+    logout: "Logout",
+    yourToken: "Your token:",
+    tittlesReviews: "Tittles reviews:",
+    reviewsWritten: "Reviews written:"
 };

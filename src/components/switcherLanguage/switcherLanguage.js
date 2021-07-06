@@ -1,15 +1,18 @@
 import React, {useState} from "react";
 
 import './switcherLanguage.css';
+import {useTranslation} from "react-i18next";
 
 
 
     export default function SwitcherLanguage() {
+        const { t, i18n } = useTranslation();
         const [language, setLanguage] = useState('en');
 
         const handleClick = (event) => {
             event.preventDefault();
-            setLanguage(changeLang);
+            changeLang()
+            i18n.changeLanguage(language);
         };
 
         function changeLang(){
@@ -22,7 +25,7 @@ import './switcherLanguage.css';
 
     return (
         <div className="switcher">
-            <button onClick={handleClick}>Change Lang</button>
+            <a className="a-switcher" href="#" onClick={handleClick}>{t("changeLang")}</a>
             {/*<FormControl className={classes.formControl} id="select">
                 <InputLabel id="demo-simple-select-label">Language</InputLabel>
                 <Select

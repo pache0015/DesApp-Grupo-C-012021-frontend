@@ -3,9 +3,11 @@ import getUserDataService from "../../services/getUserDataService";
 import Header from "../../components/header/Header";
 import './userHome.css';
 import UserContext from "../../contexts/UserContext";
+import {useTranslation} from "react-i18next";
 
 export default function UserHome(){
 
+    const { t, i18n } = useTranslation();
     const [loading, setLoading] = useState(false);
     const [userData, setUserData] = useState([]);
     const [titlesReviewed, setTitlesReviewed] = useState()
@@ -31,16 +33,16 @@ export default function UserHome(){
         <div className="home">
             <Header className="header" />
             <div className="api-key">
-                <h1>Tu api key es:</h1>
+                <h1>{t("yourToken")}</h1>
                 <input type="text" value={"Bearer ".concat(token)}/>
             </div>
 
             <div className="metricas">
-                <h1>Títulos revisado:</h1>
+                <h1>{t("tittlesReviews")}</h1>
                 <span>{titlesReviewed}</span>
             </div>
             <div className="metricas">
-                <h1>Reseñas escritas:</h1>
+                <h1>{t("reviewsWritten")}</h1>
                 <span>{reviewsWritten}</span>
             </div>
         </div>
