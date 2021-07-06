@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import getUserData from "../../services/getUserData";
 
-export default function UserHomer({apiKey}){
+export default function UserHome({apiKey}){
 
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);

@@ -35,14 +35,16 @@ function LoginForm() {
         };
         const handleSubmit = (event) =>{
             event.preventDefault();
-            login({ username, password })
+            console.log(username)
+            console.log(values.password)
+            login( username, values.password )
         }
         return (
             <form className="loginForm" onSubmit={handleSubmit}>
                 <div className="label"> {t("Userame")}</div>
                 <input type="text"
                        className="textbox"
-                       onChange={(e) => e.target.value}
+                       onChange={(e) => setName(e.target.value)}
                        value={username}></input>
                 <div className="label"> {t("password")}</div>
                 <Input
